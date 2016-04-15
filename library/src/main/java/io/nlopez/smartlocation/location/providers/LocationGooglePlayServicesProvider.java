@@ -147,8 +147,12 @@ public class LocationGooglePlayServicesProvider implements LocationProvider, Goo
     public void stop() {
         logger.d("stop");
         if (client.isConnected()) {
-            LocationServices.FusedLocationApi.removeLocationUpdates(client, this);
-            client.disconnect();
+            try {
+                LocationServices.FusedLocationApi.removeLocationUpdates(client, this);
+            } catch (Exception e) {
+            } finally {
+                client.disconnect();
+            }
         }
         fulfilledCheckLocationSettings = false;
         shouldStart = false;
