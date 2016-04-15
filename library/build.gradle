@@ -1,5 +1,6 @@
 buildscript {
     repositories {
+        jcenter()
         mavenCentral()
     }
     dependencies {
@@ -13,6 +14,7 @@ group 'io.nlopez.smartlocation'
 
 dependencies {
     repositories {
+        jcenter()
         mavenCentral()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     }
